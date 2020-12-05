@@ -13,7 +13,7 @@
     "start": "node ./bin/www",
     "dev": "nodemon app.js",
     "telegram": "node ./services/telegramBot",
-    "telegram-server": "pm2 start ./services/telegramBot"
+    "telegram-server": "pm2 start npm run telegram --name 'telegram'"
   },
   "dependencies": {
     "axios": "^0.20.0",
