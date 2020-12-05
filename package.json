@@ -12,7 +12,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon app.js",
-    "telegram": "node ./services/telegramBot"
+    "telegram": "node ./services/telegramBot",
+    "telegram-server": "pm2 ./services/telegramBot"
   },
   "dependencies": {
     "axios": "^0.20.0",
@@ -21,6 +22,7 @@
     "express": "~4.16.1",
     "morgan": "~1.9.1",
     "node-telegram-bot-api": "^0.50.0",
+    "pm2": "^4.5.0",
     "qs": "^6.9.4"
   },
   "devDependencies": {
