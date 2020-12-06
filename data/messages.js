@@ -14,7 +14,7 @@ ${commands}`
 
 const messagesForMatches = [
         { 
-            matches: /^\b(hi|hi!|hello|hello!|hey|hey!|hola|hola!|buenas|buenas!)\b/,
+            matches: /^\b(Hi|Hi!|Hello|Hello!|Hey|Hey!|Hola|Hola!|Buenas|Buenas!)\b/,
             response: `Hello, how are you doing?\nWould you like to listen to some music? Try with a command:\n\n${commands}`
         },
     ]
