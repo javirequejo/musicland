@@ -25,7 +25,7 @@ const getSpotifyToken = async () => {
     }
 }
 
-module.exports.findSpotifyFeaturedPlaylists = async () => {
+module.exports.findFeaturedPlaylists = async (countryCode) => {
     try {
         const token = await getSpotifyToken()
         if (token) {
@@ -38,7 +38,7 @@ module.exports.findSpotifyFeaturedPlaylists = async () => {
                     'Accept': 'application/json'
                 },
                 params: {
-                    country: 'ES'
+                    country: countryCode
                 }
             }
             const response = await axios(options)
@@ -46,6 +46,31 @@ module.exports.findSpotifyFeaturedPlaylists = async () => {
         }
     } catch (error) {
         console.log('Error in catch of featured playlists')
+        console.log(error)
+    }
+}
+
+module.exports.findNewAlbums = async (countryCode) => {
+    try {
+        const token = await getSpotifyToken()
+        if (token) {
+            const options = {
+                method: 'get',
+                url: `${SPOTIFY_BASE_URL}/browse/new-releases`,
+                headers: { 
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Accept': 'application/json'
+                },
+                params: {
+                    country: countryCode
+                }
+            }
+            const response = await axios(options)
+            return response.data.albums.items
+        }
+    } catch (error) {
+        console.log('Error in catch of new releases')
         console.log(error)
     }
 }
